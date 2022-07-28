@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 16:06:24 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/07/27 19:11:45 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:18:03 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,35 @@
 
 typedef struct
 {
-	int	x;
-	int	y;
-	int	z;
+	float	x;
+	float	y;
+	float	z;
 }	t_point;
 
 typedef struct
 {
 	int	width;
 	int	height;
-	int	offset_x;
-	int	offset_y;
 	int	scale;
+	int	x_offset;
+	int	y_offset;
+	int	depth;
+	int	threshold;
+	float	alpha;
+	float	beta;
+	float	gamma;
 	float	angle;
-	int	**matrix;
+	t_point	**matrix;
 }	fdf_map;
 
 typedef struct
 {
-	fdf_map	map;
 	void	*mlx;
 	void	*mlx_window;
+	fdf_map	map;
 }	fdf;
 
 void	error(char *msg);
-
 
 size_t	get_map_width(char *file);
 size_t	get_map_height(char *file);

@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 18:37:50 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/07/27 19:13:00 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/07/28 03:21:12 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,21 @@ size_t	get_map_width(char *file)
 	return (width);
 }
 
-static void	fill_map_matrix_line(int *line, char *str)
+static void	fill_map_matrix_line(t_point *matrix, char *str, int y)
 {
-	 int	index;
+	 int	x;
 	 char	**values;
 
-	 if (!str || !line)
+	 if (!str || !matrix)
 		 return ;
 	 values = ft_split(str, ' ');
-	 index = -1;
-	 while (values[++index])
+	 x = -1;
+	 while (values[++x])
 	 {
-		 line[index] = ft_atoi(values[index]);
-		 free(values[index]);
+		 matrix[x].x = x;
+		 matrix[x].y = y;
+		 matrix[x].z = ft_atoi(values[x]);
+		 free(values[x]);
 	 }
 	 free(values);
 }
@@ -70,22 +72,22 @@ static void	fill_map_matrix_line(int *line, char *str)
 void	fill_map_matrix(char *file, fdf_map *map)
 {
 	int	fd;
-	int	index;
+	int	y;
 	char	*line;
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return ;
-	index = 0;
 	line = "";
+	y = 0;
 	while (line)
 	{
 		line = get_next_line(fd);
-		fill_map_matrix_line(map->matrix[index], line);
+		fill_map_matrix_line(map->matrix[y], line, y);
 		if (line)
-			index++;
+			y++;
 		free(line);
 	}
-	map->matrix[index] = NULL;
+	map->matrix[y] = NULL;
 	close(fd);
 }

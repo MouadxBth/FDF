@@ -1,6 +1,13 @@
 #include <mlx.h>
 #include "fdf.h"
 
+int	close_window(void *param)
+{
+	(void)param;
+	exit(0);
+	return (0);
+}
+
 void	error(char *msg)
 {
 	ft_printf("[Error]: %s\n", msg);
@@ -26,7 +33,7 @@ static void	initialize(fdf *info)
 {
 	info->mlx = mlx_init();
 	info->mlx_window = mlx_new_window(info->mlx, 1000, 1000, "FDF");
-	mlx_key_hook(info->mlx_window, handle_keys, info);
+	mlx_hook(info->mlx_window, 2, 0, handle_keys, info);
 }
 
 int	main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 18:55:23 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/07/27 19:57:22 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/07/28 03:16:52 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	offset_point(t_point *point, int x_offset, int y_offset)
 
 void	rotate_x(t_point *point, float angle)
 {
-	int y;
+	float y;
 
 	y = point->y;
 	point->y = y * cos(angle) + point->z * sin(angle);
@@ -36,7 +36,7 @@ void	rotate_x(t_point *point, float angle)
 
 void	rotate_y(t_point *point, float angle)
 {
-	int x;
+	float x;
 
 	x = point->x;
 	point->x = x * cos(angle) + point->z * sin(angle);
@@ -45,8 +45,8 @@ void	rotate_y(t_point *point, float angle)
 
 void	rotate_z(t_point *point, float angle)
 {
-	int x;
-	int y;
+	float x;
+	float y;
 
 	x = point->x;
 	y = point->y;
