@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point_utils.c                                      :+:      :+:    :+:   */
+/*   fdf_point_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 18:55:23 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/07/28 03:16:52 by mbouthai         ###   ########.fr       */
+/*   Created: 2022/07/31 01:25:54 by mbouthai          #+#    #+#             */
+/*   Updated: 2022/07/31 01:26:04 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	offset_point(t_point *point, int x_offset, int y_offset)
 	point->y += y_offset;
 }
 
-void	rotate_x(t_point *point, float angle)
+void	rotate_axis(t_point *point, float angle)
 {
 	float y;
 
@@ -34,7 +34,7 @@ void	rotate_x(t_point *point, float angle)
 	point->z = -y * sin(angle) + point->z * cos(angle);
 }
 
-void	rotate_y(t_point *point, float angle)
+void	rotate_ordinate(t_point *point, float angle)
 {
 	float x;
 
@@ -43,7 +43,7 @@ void	rotate_y(t_point *point, float angle)
 	point->z = -x * sin(angle) + point->z * cos(angle);
 }
 
-void	rotate_z(t_point *point, float angle)
+void	rotate_altitude(t_point *point, float angle)
 {
 	float x;
 	float y;

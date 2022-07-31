@@ -6,7 +6,7 @@
 #    By: mbouthai <mbouthai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/20 15:36:27 by mbouthai          #+#    #+#              #
-#    Updated: 2022/07/28 04:10:11 by mbouthai         ###   ########.fr        #
+#    Updated: 2022/07/31 14:25:52 by mbouthai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ LFLAGS	:= -L./libft -L./ft_printf -Lmlx_linux -L/usr/lib -lft -lftprintf -lmlx_L
 
 INC_FS	:= fdf.h
 
-SRC_FS	:= fdf.c point_utils.c map_utils.c map_parser.c map_projection.c map_renderer.c key_handling.c
+SRC_FS	:= fdf.c fdf_utils.c fdf_init.c fdf_map_parsing.c fdf_map_projection.c \
+		fdf_point_utils.c fdf_map_rendering.c fdf_vector_utils.c fdf_key_handling.c
 
 INCS	= $(addprefix $(INC_DIR), $(INC_FS))
 
