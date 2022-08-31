@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 21:05:28 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/08/08 22:47:44 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:14:15 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ int	ft_file_rows(char *file)
 	if (fd < 0)
 		return (-1);
 	result = 0;
-	line = get_next_line(fd);
+	line = get_next_line(fd, 500);
 	while (line)
 	{
 		result++;
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(fd, 500);
 	}
 	close(fd);
 	return (result);
@@ -73,7 +73,7 @@ int	ft_file_columns(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (-1);
-	line = get_next_line(fd);
+	line = get_next_line(fd, -1);
 	result = ft_words(line, ' ');
 	free(line);
 	close(fd);

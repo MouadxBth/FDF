@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 18:20:19 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/08/11 01:53:50 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:31:29 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	cleanup(t_fdf *info)
 	mlx_destroy_image(info->mlx, info->image[0].id);
 	mlx_destroy_image(info->mlx, info->image[1].id);
 	mlx_destroy_window(info->mlx, info->mlx_window);
-	exit(-1);
+	if (!info->mlx)
+		free(info->mlx);
+	exit(0);
 	return (0);
 }

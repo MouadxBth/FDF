@@ -4,7 +4,7 @@ DEPS	= libft.h
 
 CC	= gcc
 
-CFLAGS	=-Wall -Werror -Wextra -include $(DEPS) 
+CFLAGS	=-Wall -Werror -Wextra -g -include $(DEPS) 
 
 ARCHIVE	= ar -rcs
 

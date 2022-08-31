@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:17:54 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/07/26 14:40:19 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/08/31 15:07:02 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,20 @@ int	ft_find(char c, char *str)
 	return (-1);
 }
 
-char	*ft_fill_stash(int fd, char *stash, int *new_line)
+char	*ft_fill_stash(int fd, char *stash, int *new_line, int buff_size)
 {
 	char	*buffer;
 	ssize_t	bytes_read;
 
-	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (buff_size <= 0)
+		buff_size = 3;
+	buffer = (char *)malloc(sizeof(char) * (buff_size + 1));
 	if (!buffer)
 		return (NULL);
 	bytes_read = 1;
 	while (bytes_read > 0)
 	{
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		bytes_read = read(fd, buffer, buff_size);
 		if (bytes_read == -1)
 			break ;
 		buffer[bytes_read] = '\0';
@@ -89,15 +91,15 @@ char	*ft_process_stash(char *stash, int new_line)
 	return (stash);
 }	
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int buff_size)
 {
 	static char	*stash[MAX_FD + 1];
 	char		*line;
 	int			new_line;
 
-	if (fd < 0 || fd > MAX_FD || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > MAX_FD)
 		return (NULL);
-	stash[fd] = ft_fill_stash(fd, stash[fd], &new_line);
+	stash[fd] = ft_fill_stash(fd, stash[fd], &new_line, buff_size);
 	if (!stash[fd])
 		return (NULL);
 	if (!*stash[fd])

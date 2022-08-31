@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 01:23:48 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/08/20 01:02:54 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:47:01 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	pixel_put(t_image *img, t_point *point, int color)
 	img->address[++step] = color >> 8;
 	img->address[++step] = color >> 16;
 	img->address[++step] = color >> 24;
+
 }
 
 static void	draw(t_vector *vector, t_fdf *info)
