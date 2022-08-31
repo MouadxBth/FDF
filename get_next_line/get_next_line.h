@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:16:13 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/07/26 15:24:58 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/08/31 09:23:44 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/libft.h"
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 3
+#  define BUFFER_SIZE 500
 # endif
 
 # ifndef MAX_FD
