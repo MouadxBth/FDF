@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 21:06:58 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/08/16 16:30:52 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/17 17:44:10 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ int	init_map(t_fdf_map *map, char *file)
 {
 	if (!map || !file)
 		return (error("Could not initialize map"));
-	map->width = ft_file_columns(file);
-	map->height = ft_file_rows(file);
-	if (map->width == -1 || map->height == -1)
+	if (!ft_map_size(map, file)
+		|| map->width <= 0
+		|| map->height <= 0)
 		return (error("Could not open file"));
 	map->scale = 5;
 	map->x_offset = (W_WIDTH - (W_WIDTH / 5)

@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 01:09:26 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/08/31 15:04:48 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/17 17:26:53 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	parse_map(t_fdf_map *map, char *file)
 	line = "";
 	while (line)
 	{
-		line = get_next_line(fd, map->width);
+		line = get_next_line(fd);
 		fill_map_matrix_row(map, line, row);
 		if (line)
 			row++;

@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 16:06:24 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/08/20 01:18:19 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/17 17:43:17 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,7 @@ int			clear_image(t_image *image);
 int			fill_image(t_image *info, int color);
 int			cleanup(t_fdf *info);
 
-int			ft_file_rows(char *file);
-int			ft_file_columns(char *file);
+int			ft_map_size(t_fdf_map *map, char *file);
 
 int			get_transparency(int color);
 int			get_red(int color);

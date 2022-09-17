@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:16:13 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/08/31 15:04:25 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/17 17:26:29 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,18 @@
 #  define MAX_FD 128
 # endif
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 500
+# endif
+
 char	*ft_substrs(char const *str, unsigned int start, size_t len);
 char	*ft_strjoins(char *s1, char *s2);
 
 int		ft_find(char c, char *str);
-char	*ft_fill_stash(int fd, char *stash, int *new_line, int buff_size);
+char	*ft_fill_stash(int fd, char *stash, int *new_line);
 char	*ft_extract_line(char *stash, int new_line);
 char	*ft_process_stash(char *stash, int new_line);
 
-char	*get_next_line(int fd, int buff_size);
+char	*get_next_line(int fd);
 
 #endif
