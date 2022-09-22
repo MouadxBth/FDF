@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 01:25:06 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/09/22 00:51:04 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/22 06:21:18 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 #include <math.h>
 #include "fdf.h"
 
-/*point->x = (x - y) * cos(angle);
-point->y = (x + y) * sin(angle)  - point->z;
-point->x = x - y;
-point->y = y + x - point->z;*/
 static void	isometric(t_point *point, float angle)
 {
 	int	x;
@@ -25,7 +21,7 @@ static void	isometric(t_point *point, float angle)
 
 	x = point->x;
 	y = point->y;
-	point->x = (x * cos(angle) + y * sin(angle));
+	point->x = (x * cos(angle) + y * sin(angle)) * 2;
 	point->y = ((-x * sin(angle) + y * cos(angle)) - point->z);
 }
 

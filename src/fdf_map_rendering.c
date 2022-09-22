@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 01:23:48 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/09/22 01:12:34 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/22 06:21:33 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 static int	in_window(t_point *point)
 {
-	return ((point->x > 0 && point->x <= W_WIDTH - (W_WIDTH / 5))
-		&& (point->y >= 0 && point->y <= W_HEIGHT));
+	return ((point->x > 0 && point->x < W_WIDTH - (W_WIDTH / 5))
+		&& (point->y > 0 && point->y < W_HEIGHT));
 }
 
 static void	pixel_put(t_image *img, t_point *point, int color)

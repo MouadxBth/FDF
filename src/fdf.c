@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 20:20:00 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/09/22 01:05:27 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/22 06:20:47 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ static void	setup_event_hooks(t_fdf *info)
 	mlx_hook(info->mlx_window, 2, 1L << 0, handle_keys, info);
 }
 
-static void	initialize(t_info *info)
+static void	initialize(t_fdf *info, char *map)
 {
-	if (!init_image(info) || !init_camera(info->camera))
+	if (!init_image(info) || !init_camera(&info->camera))
 	{
 		ft_printf("[ERROR]: Couldn't initialize!\n");
 		cleanup(info);
 	}
-	if (!parse_map(info->map, argv[1]))
+	if (!parse_map(&info->map, map))
 	{
 		ft_printf("[ERROR]: Invalid map!\n");
 		cleanup(info);
@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 		return (-1);
 	if (!init_map(&info.map, argv[1]))
 		return (-1);
-	initiliaze(&info);
+	initialize(&info, argv[1]);
 	print_menu(&info, argv[1]);
 	setup_event_hooks(&info);
 	mlx_loop(info.mlx);

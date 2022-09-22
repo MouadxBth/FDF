@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 21:06:58 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/09/22 00:53:46 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/22 06:24:34 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	init_map(t_fdf_map *map, char *file)
 	if (!ft_map_size(map, file)
 		|| map->width <= 0
 		|| map->height <= 0)
-		return (error("Could not open file"));
+		return (error("Could not open file or file is empty!"));
 	map->scale = 4;
 	map->x_offset = (W_WIDTH - (W_WIDTH / 5)
 			- ((map->width / 2) * map->scale)) / 2;
