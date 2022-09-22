@@ -6,7 +6,7 @@
 /*   By: mbouthai <mbouthai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:32:23 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/07/26 16:21:52 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/22 01:14:52 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+int		ft_hex_to_int(char *hex);
+
+int		ft_str_ncontains(int c, int times, char *str);
+
+int		ft_count_elements(int c, char *str);
 
 #endif

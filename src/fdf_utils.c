@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 21:05:28 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/09/17 17:44:38 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/22 01:14:21 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,36 @@ int	check_args(int argc, char **argv)
 	return (1);
 }
 
+int	ft_count_words(char **elements)
+{
+	int	result;
+
+	if (!elements)
+		return (0);
+	result = 0;
+	while (elements[result] && *elements[result] != '\n')
+		result++;
+	return (result);
+}
+
 int	ft_map_size(t_fdf_map *map, char *file)
 {
 	int		fd;
+	int		index;
 	char	*line;
+	char	**elements;
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (0);
 	line = get_next_line(fd);
-	map->width = ft_words(line, ' ');
+	elements = ft_split(line, ' ');
+	map->width = ft_count_words(elements);
 	map->height = 0;
+	index = -1;
+	while (elements[++index])
+		free(elements[index]);
+	free(elements);
 	while (line)
 	{
 		map->height++;

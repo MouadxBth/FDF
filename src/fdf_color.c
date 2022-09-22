@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 01:53:18 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/08/20 01:13:21 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/22 01:17:01 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ static float	get_percentage(int start, int end, int current)
 int	select_color(int max, int min, int z)
 {
 	float	percentage;
-	int	value;
+	int		value;
 
 	percentage = get_percentage(min, max, z);
 	if (percentage <= 0.0)
 		return (mix_color(0, 255, 255, 255));
 	if (percentage > 1.6)
 		percentage = 1.6;
-	value = 256 - (int)(percentage * 10) * 16;
+	value = 256 - ((int)(percentage * 10)) * 16;
 	return (mix_color(0, 255, 125, value));
 }
 

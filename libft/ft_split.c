@@ -6,11 +6,12 @@
 /*   By: mbouthai <mbouthai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 13:54:39 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/07/26 16:22:24 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/21 23:43:12 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static inline void	ft_skip_delim(const char *str, size_t *index, int delim)
 {

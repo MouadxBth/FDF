@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 01:25:06 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/08/09 15:03:49 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/22 00:51:04 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ static void	isometric(t_point *point, float angle)
 
 	x = point->x;
 	y = point->y;
-	point->x = (x * cos(angle) - y * sin(angle)) * 2;
-	point->y = ((x * sin(angle) + y * cos(angle)) - point->z);
+	point->x = (x * cos(angle) + y * sin(angle));
+	point->y = ((-x * sin(angle) + y * cos(angle)) - point->z);
 }
 
-static void	rotate(t_point *point, float angle)
+void	rotate(t_point *point, float angle)
 {
 	int	x;
 	int	y;
@@ -51,6 +51,7 @@ t_point	project_point(t_point point, t_fdf *info)
 		isometric(&point, info->camera.iso_angle);
 	point.x += info->map.x_offset;
 	point.y += info->map.y_offset;
-	point.color = select_color(info->map.z_max, info->map.z_min, point.z);
+	if (!info->map.colored)
+		point.color = select_color(info->map.z_max, info->map.z_min, point.z);
 	return (point);
 }

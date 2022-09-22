@@ -6,11 +6,12 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 21:06:58 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/09/17 17:44:10 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/22 00:53:46 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
+#include <math.h>
 #include "fdf.h"
 
 int	init_window(t_fdf *info)
@@ -67,14 +68,15 @@ int	init_map(t_fdf_map *map, char *file)
 		|| map->width <= 0
 		|| map->height <= 0)
 		return (error("Could not open file"));
-	map->scale = 5;
+	map->scale = 4;
 	map->x_offset = (W_WIDTH - (W_WIDTH / 5)
-			- (map->width * map->scale)) / 2;
-	map->y_offset = (W_HEIGHT - (map->height * map->scale)) / 2;
+			- ((map->width / 2) * map->scale)) / 2;
+	map->y_offset = (W_HEIGHT - ((map->height / 2) * map->scale)) / 2;
 	map->z_max_orig = 1;
 	map->z_min_orig = 1;
 	map->z_max = 1;
 	map->z_min = 0;
+	map->colored = 0;
 	return (init_map_matrix(map));
 }
 
@@ -86,6 +88,6 @@ int	init_camera(t_camera *camera)
 	camera->altitude_threshold = 10;
 	camera->iso_projection = 1;
 	camera->rotation_angle = 0.0;
-	camera->iso_angle = (1.0 / 4.0) * 3.14;
+	camera->iso_angle = M_PI_4;
 	return (1);
 }

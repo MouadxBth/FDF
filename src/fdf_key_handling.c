@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 21:16:46 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/08/19 23:49:50 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/22 01:13:55 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static void	handle_zoom(int key, t_fdf *info)
 		info->map.scale += 1;
 	else if (key == 65453)
 		info->map.scale -= 1;
-	//info->map.z_max = info->map.z_max_orig * info->map.scale;
-	//info->map.z_min = info->map.z_min_orig * info->map.scale;
 }
 
 static void	handle_translation(int key, t_fdf *info)
@@ -56,9 +54,9 @@ int	handle_keys(int key, t_fdf *info)
 	else if (key == 65432)
 		info->camera.altitude -= 1;
 	else if (key == 65431)
-		info->camera.rotation_angle -= 0.01;
+		info->camera.rotation_angle -= 0.05;
 	else if (key == 65437)
-		info->camera.rotation_angle += 0.01;
+		info->camera.rotation_angle += 0.05;
 	else if (key == 65361 || key == 65362
 		|| key == 65363 || key == 65364)
 		handle_translation(key, info);

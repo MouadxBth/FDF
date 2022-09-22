@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 16:06:24 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/09/17 17:43:17 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/22 01:15:28 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ typedef struct s_camera
 	int		altitude;
 	int		altitude_threshold;
 	int		iso_projection;
-	float	rotation_angle;
 	float	iso_angle;
+	float	rotation_angle;
 }	t_camera;
 
 typedef struct s_image
@@ -66,6 +66,7 @@ typedef struct s_fdf_map
 	int		z_min_orig;
 	int		z_max;
 	int		z_min;
+	int		colored;
 	t_point	**matrix;
 }	t_fdf_map;
 
@@ -104,13 +105,15 @@ int			init_image(t_fdf *info);
 int			init_map(t_fdf_map *map, char *file);
 int			init_camera(t_camera *info);
 
-void		parse_map(t_fdf_map *map, char *file);
+int			parse_map(t_fdf_map *map, char *file);
 void		print_map(t_fdf_map *map);
 int			render_map(t_fdf *info);
 void		print_menu(t_fdf *info, char *file);
 
 int			handle_exit(int key, t_fdf *info);
 int			handle_keys(int key, t_fdf *info);
+
+int			ft_count_words(char **str);
 
 t_vector	new_vector(t_point start, t_point end);
 t_point		project_point(t_point point, t_fdf *info);

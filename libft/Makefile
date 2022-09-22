@@ -26,7 +26,9 @@ SRCS	= ft_isalpha.c ft_isdigit.c \
 	  ft_putchar_fd.c ft_putstr_fd.c \
 	  ft_putendl_fd.c ft_putnbr_fd.c \
 	  ../get_next_line/get_next_line_utils.c \
-	  ../get_next_line/get_next_line.c
+	  ../get_next_line/get_next_line.c \
+	  ft_hex_to_int.c ft_str_ncontains.c \
+	  ft_count_elements.c
 			
 OBJS	= $(SRCS:.c=.o)
 

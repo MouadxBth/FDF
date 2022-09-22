@@ -6,7 +6,7 @@
 /*   By: mbouthai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 01:23:48 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/08/31 14:47:01 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/09/22 01:12:34 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static void	pixel_put(t_image *img, t_point *point, int color)
 	img->address[++step] = color >> 8;
 	img->address[++step] = color >> 16;
 	img->address[++step] = color >> 24;
-
 }
 
 static void	draw(t_vector *vector, t_fdf *info)
@@ -76,14 +75,14 @@ static void	render_row(t_fdf *info, int x, int y)
 	}
 	if (x < info->map.width - 1)
 	{
-		line = new_vector(start, 
-			project_point(info->map.matrix[y][x + 1], info));
+		line = new_vector(start,
+				project_point(info->map.matrix[y][x + 1], info));
 		draw(&line, info);
 	}
 	if (y < info->map.height - 1)
 	{
-		line = new_vector(start, 
-			project_point(info->map.matrix[y + 1][x], info));
+		line = new_vector(start,
+				project_point(info->map.matrix[y + 1][x], info));
 		draw(&line, info);
 	}
 }
